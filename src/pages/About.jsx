@@ -1,242 +1,245 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { FaQuoteLeft, FaStar, FaArrowRight, FaShoppingBag, FaTag, FaTruck, FaLeaf, FaHeart, FaShieldAlt } from 'react-icons/fa';
 
 const About = () => {
+  const testimonials = [
+    {
+      id: 1,
+      quote: "The quality of products and customer service is exceptional. I've been shopping here for years and have never been disappointed.",
+      rating: 5,
+      author: "Sarah Johnson",
+      role: "Fashion Enthusiast"
+    },
+    {
+      id: 2,
+      quote: "Their commitment to sustainable fashion is impressive. Every piece I've purchased has been both stylish and eco-friendly.",
+      rating: 5,
+      author: "Michael Chen",
+      role: "Sustainability Advocate"
+    },
+    {
+      id: 3,
+      quote: "The shopping experience is seamless, and their delivery is always on time. Highly recommend for anyone looking for premium fashion.",
+      rating: 5,
+      author: "Emma Rodriguez",
+      role: "Loyal Customer"
+    }
+  ];
+
   return (
-    <div className="py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-dark-900">
         {/* Hero Section */}
-        <div className="mb-16 text-center">
-          <motion.h1 
-            className="text-4xl md:text-5xl font-bold text-white mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            About <span className="text-primary">LUXE</span>SHOP
-          </motion.h1>
-          
-          <motion.p 
-            className="text-lg text-gray-300 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            We're dedicated to providing high-quality products with exceptional customer service.
-            Our mission is to make premium fashion and lifestyle products accessible to everyone.
-          </motion.p>
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-800 to-primary/20" />
+          <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))]" />
         </div>
         
-        {/* Our Story */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+            <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-block mb-6 px-4 py-2 rounded-full bg-primary/10 border border-primary/20"
+            >
+              <span className="text-primary font-medium">🎉 Our Journey</span>
+            </motion.div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              Our <span className="bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent">Story</span>
+            </h1>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Discover the journey of our premium fashion brand and our commitment to excellence.
+            </p>
+          </motion.div>
+        </div>
+        </div>
+        
+      {/* Story Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6 }}
+            className="relative z-10"
           >
-            <h2 className="text-3xl font-bold text-white mb-4">Our Story</h2>
-            <p className="text-gray-300 mb-4">
-              Founded in 2015, LUXESHOP began as a small online boutique with a passion for curating stylish, high-quality products. What started as a dream has now evolved into a thriving e-commerce platform serving customers worldwide.
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-block mb-6 px-4 py-2 rounded-full bg-primary/10 border border-primary/20"
+            >
+              <span className="text-primary font-medium">Our Journey</span>
+            </motion.div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              The Beginning of Our <span className="text-primary">Journey</span>
+            </h2>
+            <p className="text-gray-300 mb-6">
+              Founded with a vision to revolutionize the fashion industry, our store began as a small boutique with a big dream. We wanted to create a space where quality, style, and sustainability intersect.
             </p>
-            <p className="text-gray-300 mb-4">
-              Our founder, Jane Smith, noticed a gap in the market for premium products at reasonable prices. With an initial collection of just 20 products, she launched LUXESHOP from her apartment. The response was overwhelming, and within a year, we expanded our product range to include fashion, accessories, electronics, and more.
+            <p className="text-gray-300 mb-6">
+              Our commitment to excellence has driven us to curate only the finest collections, ensuring that every piece tells a story of craftsmanship and attention to detail.
             </p>
-            <p className="text-gray-300">
-              Today, we offer thousands of products from over 100 brands, but our commitment remains the same: to provide exceptional products, outstanding customer service, and a seamless shopping experience.
-            </p>
+            <div className="grid grid-cols-2 gap-8 mt-8">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="bg-dark-800/50 p-6 rounded-xl border border-gray-700/30 backdrop-blur-sm hover:border-primary/30 transition-colors duration-300"
+              >
+                <h3 className="text-2xl font-bold text-white mb-2">10+</h3>
+                <p className="text-gray-400">Years of Excellence</p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="bg-dark-800/50 p-6 rounded-xl border border-gray-700/30 backdrop-blur-sm hover:border-primary/30 transition-colors duration-300"
+              >
+                <h3 className="text-2xl font-bold text-white mb-2">50K+</h3>
+                <p className="text-gray-400">Happy Customers</p>
+              </motion.div>
+            </div>
           </motion.div>
           
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative"
+            transition={{ duration: 0.6 }}
+            className="relative z-10"
           >
-            <div className="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden shadow-xl">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-400/20 rounded-2xl transform rotate-3" />
               <img 
-                src="https://images.unsplash.com/photo-1560264280-88b68371db39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-                alt="Our store" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute -bottom-6 -right-6 bg-primary text-white p-4 rounded shadow-lg font-medium">
-              Since 2015
-            </div>
+              src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+              alt="Our Store"
+              className="rounded-2xl shadow-2xl relative z-10 transform hover:scale-[1.02] transition-transform duration-500"
+            />
           </motion.div>
         </div>
-        
-        {/* Our Values */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <motion.h2 
-              className="text-3xl font-bold text-white mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              Our Values
-            </motion.h2>
-            <motion.p 
-              className="text-gray-300 max-w-3xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              The principles that guide everything we do
-            </motion.p>
           </div>
           
+      {/* Values Section */}
+      <div className="bg-dark-800/50 py-16 md:py-24 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(120,119,198,0.1),rgba(255,255,255,0))]" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-block mb-6 px-4 py-2 rounded-full bg-primary/10 border border-primary/20"
+            >
+              <span className="text-primary font-medium">Our Values</span>
+            </motion.div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Our Core <span className="bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent">Values</span>
+            </h2>
+            <p className="text-gray-300 max-w-2xl mx-auto">
+              These principles guide everything we do and shape our commitment to our customers.
+            </p>
+            </motion.div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div 
-              className="bg-dark-800 p-6 rounded-lg shadow-md"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className="bg-primary/20 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Quality</h3>
-              <p className="text-gray-300">We believe in offering only the highest quality products. Every item in our catalog undergoes rigorous testing and quality checks before being listed.</p>
-            </motion.div>
-            
-            <motion.div 
-              className="bg-dark-800 p-6 rounded-lg shadow-md"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="bg-primary/20 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Customer First</h3>
-              <p className="text-gray-300">Our customers are at the heart of everything we do. We strive to provide exceptional service, transparent policies, and a seamless shopping experience.</p>
-            </motion.div>
-            
-            <motion.div 
-              className="bg-dark-800 p-6 rounded-lg shadow-md"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <div className="bg-primary/20 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Sustainability</h3>
-              <p className="text-gray-300">We're committed to reducing our environmental impact. From eco-friendly packaging to partnering with sustainable brands, we're taking steps toward a greener future.</p>
-            </motion.div>
+            {[
+              {
+                title: "Quality First",
+                description: "We never compromise on quality, ensuring every product meets our high standards.",
+                icon: <FaShieldAlt className="text-primary text-3xl" />
+              },
+              {
+                title: "Sustainable Fashion",
+                description: "Committed to eco-friendly practices and sustainable materials in our collections.",
+                icon: <FaLeaf className="text-primary text-3xl" />
+              },
+              {
+                title: "Customer Focus",
+                description: "Your satisfaction is our priority, with exceptional service at every step.",
+                icon: <FaHeart className="text-primary text-3xl" />
+              }
+            ].map((value, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="bg-dark-900/50 p-8 rounded-xl border border-gray-700/30 backdrop-blur-sm hover:border-primary/30 transition-colors duration-300 group"
+              >
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  {value.icon}
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">{value.title}</h3>
+                <p className="text-gray-300">{value.description}</p>
+              </motion.div>
+            ))}
+          </div>
           </div>
         </div>
         
-        {/* Team */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <motion.h2 
-              className="text-3xl font-bold text-white mb-4"
+      {/* Testimonials Section */}
+      <div className="py-16 md:py-24 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(120,119,198,0.1),rgba(255,255,255,0))]" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-block mb-6 px-4 py-2 rounded-full bg-primary/10 border border-primary/20"
             >
-              Meet Our Team
-            </motion.h2>
-            <motion.p 
-              className="text-gray-300 max-w-3xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              The talented individuals behind LUXESHOP
-            </motion.p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                name: "Jane Smith",
-                title: "Founder & CEO",
-                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-              },
-              {
-                name: "Michael Johnson",
-                title: "Chief Operating Officer",
-                image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-              },
-              {
-                name: "Sarah Wilson",
-                title: "Head of Design",
-                image: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-              },
-              {
-                name: "David Lee",
-                title: "Customer Experience Manager",
-                image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-              }
-            ].map((person, index) => (
-              <motion.div 
-                key={person.name}
-                className="bg-dark-800 rounded-lg overflow-hidden shadow-md"
+              <span className="text-primary font-medium">Testimonials</span>
+            </motion.div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              What Our <span className="bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent">Customers</span> Say
+            </h2>
+            <p className="text-gray-300 max-w-2xl mx-auto">
+              Hear from our valued customers about their experiences with our brand.
+          </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={testimonial.id}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="bg-dark-800/50 p-8 rounded-xl border border-gray-700/30 backdrop-blur-sm hover:border-primary/30 transition-colors duration-300 group"
               >
-                <div className="aspect-w-1 aspect-h-1">
-                  <img 
-                    src={person.image} 
-                    alt={person.name} 
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <FaQuoteLeft className="text-primary text-3xl" />
                 </div>
-                <div className="p-4 text-center">
-                  <h3 className="text-lg font-medium text-white">{person.name}</h3>
-                  <p className="text-gray-400">{person.title}</p>
+                <p className="text-gray-300 mb-6">{testimonial.quote}</p>
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <FaStar key={i} className="text-yellow-400" />
+                  ))}
+                </div>
+                <div>
+                  <p className="text-white font-semibold">{testimonial.author}</p>
+                  <p className="text-gray-400 text-sm">{testimonial.role}</p>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
-        
-        {/* CTA */}
-        <motion.div 
-          className="bg-dark-800 rounded-lg p-8 md:p-12 text-center shadow-lg"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Shop with Us?</h2>
-          <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-            Explore our wide range of premium products and experience the LUXESHOP difference.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link 
-              to="/products" 
-              className="bg-primary hover:bg-primary-600 text-white px-6 py-3 rounded-md font-medium transition-colors duration-300"
-            >
-              Shop Now
-            </Link>
-            <Link 
-              to="/contact" 
-              className="bg-transparent border border-gray-600 hover:border-white text-white px-6 py-3 rounded-md font-medium transition-colors duration-300"
-            >
-              Contact Us
-            </Link>
-          </div>
-        </motion.div>
       </div>
     </div>
   );

@@ -32,6 +32,7 @@ export const ProductCard = ({
   const [isWishlist, setIsWishlist] = React.useState(false);
   const { addToCart } = useCart();
   const [addedToCart, setAddedToCart] = React.useState(false);
+  const [imgError, setImgError] = React.useState(false);
   
   const toggleWishlist = (e) => {
     e.preventDefault();
@@ -54,6 +55,10 @@ export const ProductCard = ({
     setTimeout(() => {
       setAddedToCart(false);
     }, 1500);
+  };
+
+  const handleImageError = () => {
+    setImgError(true);
   };
   
   return (
@@ -88,9 +93,10 @@ export const ProductCard = ({
             
             <div className="h-full bg-dark-700">
               <img 
-                src={image} 
+                src={imgError ? "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" : image} 
                 alt={name} 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                onError={handleImageError}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>

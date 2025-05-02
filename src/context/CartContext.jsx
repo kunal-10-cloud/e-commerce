@@ -64,11 +64,7 @@ const cartReducer = (state, action) => {
       } else {
         // Add new item
         const newItem = {
-          id: product.id,
-          name: product.name,
-          price: product.price,
-          image: product.image,
-          description: product.description,
+          ...product,
           quantity: quantity,
           color: color || (product.colors ? product.colors[0] : ''),
           size: size || (product.sizes && product.sizes.length > 0 ? product.sizes[0] : ''),

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { products } from '../../data/products';
 import { ProductCard } from './Card';
-import { FaArrowRight, FaArrowLeft, FaPause, FaPlay } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 import BackgroundPattern from './BackgroundPattern';
 
 const FeaturedProducts = () => {
@@ -28,16 +28,6 @@ const FeaturedProducts = () => {
     };
   }, [autoplay, activeIndex]);
   
-  // Pause autoplay when user interacts
-  const pauseAutoplay = () => {
-    setAutoplay(false);
-  };
-  
-  // Resume autoplay
-  const resumeAutoplay = () => {
-    setAutoplay(true);
-  };
-  
   const nextProduct = () => {
     setActiveIndex((prevIndex) => 
       prevIndex === featuredProducts.length - 1 ? 0 : prevIndex + 1
@@ -49,60 +39,23 @@ const FeaturedProducts = () => {
       prevIndex === 0 ? featuredProducts.length - 1 : prevIndex - 1
     );
   };
-  
-  const handleNavigation = (direction) => {
-    // Pause autoplay temporarily when manually navigating
-    pauseAutoplay();
-    
-    if (direction === 'next') {
-      nextProduct();
-    } else {
-      prevProduct();
-    }
-    
-    // Resume autoplay after a delay
-    setTimeout(resumeAutoplay, 10000);
-  };
 
-  // For filtering products in different screen sizes
-  const getVisibleProducts = () => {
-    let visibleCount = 4; // default for large screens
-    
-    if (window.innerWidth < 640) {
-      visibleCount = 1;
-    } else if (window.innerWidth < 1024) {
-      visibleCount = 2;
-    }
-    
-    // Create a circular array starting from activeIndex
-    const result = [];
-    for (let i = 0; i < visibleCount; i++) {
-      const index = (activeIndex + i) % featuredProducts.length;
-      result.push({
-        ...featuredProducts[index],
-        position: i
-      });
-    }
-    
-    return result;
-  };
-  
   return (
-    <section className="py-16 relative overflow-hidden">
-      {/* Add the background pattern */}
+    <section className="py-24 relative overflow-hidden">
+      {/* Background Pattern */}
       <BackgroundPattern />
       
-      <div className="container mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title and subtitle with staggered animation */}
         <motion.div 
-          className="text-center mb-12"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -111,7 +64,7 @@ const FeaturedProducts = () => {
             Featured Products
           </motion.h2>
           <motion.p 
-            className="text-gray-400 max-w-2xl mx-auto"
+            className="text-gray-400 text-lg max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -122,37 +75,8 @@ const FeaturedProducts = () => {
         </motion.div>
         
         <div className="relative">
-          {/* Navigation arrows */}
-          <div className="absolute left-0 right-0 top-1/2 transform -translate-y-1/2 flex justify-between items-center z-10 pointer-events-none">
-            <button 
-              onClick={() => handleNavigation('prev')}
-              className="p-3 bg-dark-800/80 backdrop-blur rounded-full text-white shadow-lg hover:bg-primary transition-colors duration-300 -ml-2 pointer-events-auto focus:outline-none focus:ring-2 focus:ring-primary-400"
-              aria-label="Previous product"
-            >
-              <FaArrowLeft className="h-4 w-4" />
-            </button>
-            
-            <div className="flex gap-2 pointer-events-auto">
-              <button
-                onClick={autoplay ? pauseAutoplay : resumeAutoplay}
-                className="p-3 bg-dark-800/80 backdrop-blur rounded-full text-white shadow-lg hover:bg-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-400"
-                aria-label={autoplay ? "Pause autoplay" : "Resume autoplay"}
-              >
-                {autoplay ? <FaPause className="h-4 w-4" /> : <FaPlay className="h-4 w-4" />}
-              </button>
-              
-              <button 
-                onClick={() => handleNavigation('next')}
-                className="p-3 bg-dark-800/80 backdrop-blur rounded-full text-white shadow-lg hover:bg-primary transition-colors duration-300 -mr-2 focus:outline-none focus:ring-2 focus:ring-primary-400"
-                aria-label="Next product"
-              >
-                <FaArrowRight className="h-4 w-4" />
-              </button>
-            </div>
-          </div>
-          
           {/* Products Grid with AnimatePresence for smooth transitions */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <AnimatePresence mode="wait">
               {featuredProducts.map((product, index) => (
                 <motion.div
@@ -178,6 +102,7 @@ const FeaturedProducts = () => {
                 >
                   <ProductCard 
                     product={product}
+                    className="h-[400px]"
                   />
                 </motion.div>
               ))}
@@ -186,17 +111,13 @@ const FeaturedProducts = () => {
         </div>
         
         {/* Product dots indicators */}
-        <div className="flex justify-center mt-8 gap-2">
+        <div className="flex justify-center mt-20 gap-3">
           {featuredProducts.map((_, index) => (
             <button
               key={index}
-              onClick={() => {
-                pauseAutoplay();
-                setActiveIndex(index);
-                setTimeout(resumeAutoplay, 10000);
-              }}
+              onClick={() => setActiveIndex(index)}
               className={`h-2 rounded-full transition-all duration-300 ${
-                index === activeIndex ? 'w-8 bg-primary' : 'w-2 bg-gray-600 hover:bg-gray-500'
+                index === activeIndex ? 'w-12 bg-primary' : 'w-4 bg-gray-600 hover:bg-gray-500'
               }`}
               aria-label={`Go to product ${index + 1}`}
             />
@@ -204,7 +125,7 @@ const FeaturedProducts = () => {
         </div>
         
         <motion.div 
-          className="mt-12 text-center"
+          className="mt-24 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -212,10 +133,10 @@ const FeaturedProducts = () => {
         >
           <Link 
             to="/products" 
-            className="inline-flex items-center bg-primary hover:bg-primary-600 text-white px-6 py-3 rounded-md font-medium transition-colors duration-300 group"
+            className="inline-flex items-center bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-medium transition-colors duration-300 group text-lg"
           >
             View All Products
-            <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+            <FaArrowRight className="ml-3 group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
         </motion.div>
       </div>

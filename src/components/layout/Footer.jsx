@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="bg-dark-900 text-gray-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
           {/* Company Info */}
           <div>
@@ -55,43 +55,21 @@ const Footer = () => {
             </ul>
           </div>
           
-          {/* Customer Service */}
-          <div>
-            <h3 className="text-white text-lg font-medium mb-4">Customer Service</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/account" className="hover:text-primary">My Account</Link>
-              </li>
-              <li>
-                <Link to="/orders" className="hover:text-primary">Order History</Link>
-              </li>
-              <li>
-                <Link to="/shipping" className="hover:text-primary">Shipping Info</Link>
-              </li>
-              <li>
-                <Link to="/returns" className="hover:text-primary">Returns & Refunds</Link>
-              </li>
-              <li>
-                <Link to="/faq" className="hover:text-primary">FAQ</Link>
-              </li>
-            </ul>
-          </div>
-          
           {/* Contact Info */}
           <div>
             <h3 className="text-white text-lg font-medium mb-4">Contact Us</h3>
             <ul className="space-y-3">
               <li className="flex items-start">
                 <FaMapMarkerAlt className="h-5 w-5 text-primary mr-3 mt-1" />
-                <span>123 Commerce St.<br />New York, NY 10001</span>
+                <span>123 Fashion Street<br />Bandra West, Mumbai<br />Maharashtra 400050</span>
               </li>
               <li className="flex items-center">
                 <FaPhone className="h-5 w-5 text-primary mr-3" />
-                <span>(123) 456-7890</span>
+                <span>+91 98765 43210</span>
               </li>
               <li className="flex items-center">
                 <FaEnvelope className="h-5 w-5 text-primary mr-3" />
-                <span>support@luxeshop.com</span>
+                <span>support@luxeshop.in</span>
               </li>
             </ul>
           </div>
